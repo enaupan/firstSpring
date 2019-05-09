@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+                http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+  
+
+  
+  
+	<bean id="e" class="com.ericsson.model.Employee" scope="singleton">  
+		<constructor-arg value="12" type="int"></constructor-arg>  
+		<constructor-arg value="Sonoo"></constructor-arg>
+		<constructor-arg value="Singh"></constructor-arg>	 
+	</bean>
+	<bean id="e2" class="com.ericsson.model.Employee" scope="singleton">  
+		<constructor-arg value="121" type="int"></constructor-arg>  
+		<constructor-arg value="Manish"></constructor-arg>
+		<constructor-arg value="Dhyani"></constructor-arg>	 
+	</bean>
+
+	<bean id="requestManager" class="com.ericsson.scopeTest.RequestManager">
+		<lookup-method name="getRequestHandler" bean="requestHandler"/>
+	</bean>
+
+	<bean id="requestHandler" class="com.ericsson.scopeTest.RequestHandler"	scope="prototype">
+	</bean>
+	
+</beans>  
